@@ -11,11 +11,6 @@ function Diagram({ mass, wingArea, loadFactor, CLMax }) {
 
 	// Input
 
-	// const mass = 10550;
-	// const wingArea = 34;
-	// const loadFactor = 6.5;
-	// const CLMax = 1.48;
-
 	let maxNegLoadFactor =
 		loadFactor >= 6 && loadFactor <= 8
 			? -3
