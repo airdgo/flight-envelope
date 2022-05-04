@@ -9,7 +9,7 @@ This is a web app that aims to help students and engineers by plotting the fligh
 
 ### Website
 
--[Live Site](https://airdgo.github.io/flight-envelope/)
+- [Live Site](https://airdgo.github.io/flight-envelope/)
 
 ### Built with
 
