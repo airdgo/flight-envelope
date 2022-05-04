@@ -7,7 +7,8 @@ module.exports = {
 					"linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1509541206217-cde45c41aa6d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8YWlyY3JhZnR8fHx8fHwxNjM3MTY1ODgy&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600')",
 			},
 			colors: {
-				card1: "#389096",
+				primary: "#4E83AD",
+				accent: "#FA817D",
 			},
 			spacing: {
 				26: "6.5rem",

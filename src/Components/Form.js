@@ -37,25 +37,17 @@ const Form = ({ submitValues }) => {
 		},
 	];
 
-	const [error, setError] = useState(null);
-
 	const showDiagram = (e) => {
 		e.preventDefault();
-
-		if (
-			values.mass < 0 ||
-			values.wingArea < 0 ||
-			values.loadFactor < 0 ||
-			values.CLMax < 0
-		) {
-			return setError(" < 0");
-		}
 
 		submitValues(values);
 	};
 
 	return (
-		<form className="w-full max-w-xs text-white" onSubmit={showDiagram}>
+		<form
+			className="w-full max-w-xs text-white flex flex-col gap-6"
+			onSubmit={showDiagram}
+		>
 			<AircraftType />
 			{inputs.map((input, index) => {
 				return (
@@ -68,8 +60,7 @@ const Form = ({ submitValues }) => {
 					/>
 				);
 			})}
-			{/* <Input label="Cruising Speed" unit="m/s" /> */}
-			{error && <p>{error}</p>}
+
 			<CalculateButton text="Calculate!" />
 		</form>
 	);
