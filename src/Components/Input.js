@@ -8,6 +8,7 @@ export const Input = ({ label, unit, ...props }) => {
 				{...props}
 				required={true}
 				min={0}
+				step={"any"}
 			/>
 			<span className="w-20 text-right">{unit}</span>
 		</div>
