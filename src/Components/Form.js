@@ -45,7 +45,7 @@ const Form = ({ submitValues }) => {
 
 	return (
 		<form
-			className="w-full max-w-xs text-white flex flex-col gap-6"
+			className="w-full max-w-xs text-white flex flex-col gap-6 text-sm sm:text-base"
 			onSubmit={showDiagram}
 		>
 			<AircraftType />
