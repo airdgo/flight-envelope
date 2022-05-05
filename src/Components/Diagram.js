@@ -76,6 +76,7 @@ function Diagram({ mass, wingArea, loadFactor, CLMax }) {
 	//.......................................
 	// Plot
 	//.......................................
+
 	const [colors, setColor] = useState([
 		"#2161AD",
 		"#3C597A",
@@ -170,6 +171,7 @@ function Diagram({ mass, wingArea, loadFactor, CLMax }) {
 			"autoScale2d",
 			"resetScale2d",
 		],
+		hovermode: false,
 		displayModeBar: true,
 		displaylogo: false,
 	};
@@ -188,10 +190,7 @@ function Diagram({ mass, wingArea, loadFactor, CLMax }) {
 				useResizeHandler={true}
 				config={config}
 			/>
-			<ChangeColorIco
-				className="absolute right-11 top-7 cursor-pointer"
-				onClick={() => changeColor(colors)}
-			/>
+			<ChangeColorIco onClick={() => changeColor(colors)} />
 		</div>
 	);
 }

@@ -12,3 +12,12 @@
 		-moz-appearance: textfield;
 	}
 }
+
+.icon path {
+	fill: black !important;
+}
+
+.js-plotly-plot .plotly [data-title]::after,
+.js-plotly-plot .plotly [data-title]::before {
+	display: none !important;
+}
