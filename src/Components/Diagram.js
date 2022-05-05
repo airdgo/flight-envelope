@@ -1,10 +1,12 @@
 import Plot from "react-plotly.js";
+import { useState } from "react";
 import {
 	posxArry,
 	posyArry,
 	negxArry,
 	negyArry,
 } from "./ManeuverDiagram_functions/loadFactor.js";
+import { ChangeColorIco } from "./ChangeColorIco.js";
 
 function Diagram({ mass, wingArea, loadFactor, CLMax }) {
 	// Military aircraft diagram based on MIL
@@ -74,11 +76,23 @@ function Diagram({ mass, wingArea, loadFactor, CLMax }) {
 	//.......................................
 	// Plot
 	//.......................................
+	const [colors, setColor] = useState([
+		"#2161AD",
+		"#3C597A",
+		"#14DEE0",
+		"#E4714E",
+		"#AD2D21",
+	]);
+
+	const changeColor = (colors) => {
+		const newColors = [...colors.slice(1), colors[0]];
+		setColor(newColors);
+	};
 
 	const trace1 = {
 		x: posxArry(loadFactor, Vs, A[0]),
 		y: posyArry(loadFactor, A[1]),
-		line: { shape: "spline", color: "#2ca02c" },
+		line: { shape: "spline", color: colors[0] },
 		type: "scatter",
 		mode: "lines",
 	};
@@ -86,14 +100,14 @@ function Diagram({ mass, wingArea, loadFactor, CLMax }) {
 	const trace2 = {
 		x: [A[0], B[0], C[0], D[0], E[0]],
 		y: [A[1], B[1], C[1], D[1], E[1]],
-		line: { color: "#2ca02c" },
+		line: { color: colors[0] },
 		type: "scatter",
 	};
 
 	const trace3 = {
 		x: negxArry(maxNegLoadFactor, Gav, rho, wingArea, CLMaxNeg),
 		y: negyArry(E[1]),
-		line: { shape: "spline" },
+		line: { shape: "spline", color: colors[0] },
 		mode: "lines",
 		type: "spline",
 	};
@@ -145,8 +159,22 @@ function Diagram({ mass, wingArea, loadFactor, CLMax }) {
 
 	const data = [trace1, trace2, trace3];
 
+	const config = {
+		modeBarButtonsToRemove: [
+			"zoom2d",
+			"pan2d",
+			"select2d",
+			"lasso2d",
+			"zoomIn2d",
+			"zoomOut2d",
+			"autoScale2d",
+			"resetScale2d",
+		],
+		displayModeBar: true,
+		displaylogo: false,
+	};
 	return (
-		<div className="flex justify-center w-full h-auto mt-5 rounded-xl overflow-hidden lg:mt-0 lg:ml-8 lg:w-auto lg:max-w-xl">
+		<div className="flex relative justify-center w-full h-auto mt-5 rounded-xl overflow-hidden lg:mt-0 lg:ml-8 lg:w-auto lg:max-w-xl">
 			<Plot
 				data={data}
 				layout={layout}
@@ -158,21 +186,11 @@ function Diagram({ mass, wingArea, loadFactor, CLMax }) {
 					height: "100%",
 				}}
 				useResizeHandler={true}
-				config={
-					({
-						modeBarButtonsToRemove: [
-							"zoom2d",
-							"pan2d",
-							"select2d",
-							"lasso2d",
-							"zoomIn2d",
-							"zoomOut2d",
-							"autoScale2d",
-							"resetScale2d",
-						],
-					},
-					{ staticPlot: true })
-				}
+				config={config}
+			/>
+			<ChangeColorIco
+				className="absolute right-11 top-7 cursor-pointer"
+				onClick={() => changeColor(colors)}
 			/>
 		</div>
 	);
