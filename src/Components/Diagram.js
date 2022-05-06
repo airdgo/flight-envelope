@@ -5,9 +5,9 @@ import {
 	posyArry,
 	negxArry,
 	negyArry,
-} from "./ManeuverDiagram_functions/loadFactor.js";
+} from "./ManeuverDiagram/loadFactor.js";
 import { ChangeColorIco } from "./ChangeColorIco.js";
-import { CalculateManeuverDiagram } from "./ManeuverDiagram_functions/CalculateManeuverDiagram";
+import { CalculateManeuverDiagram } from "./ManeuverDiagram/CalculateManeuverDiagram";
 
 function Diagram({ mass, wingArea, loadFactor, CLMax }) {
 	const { A, B, C, D, E, Vs, maxNegLoadFactor, Gav, rho, CLMaxNeg } =
@@ -112,18 +112,20 @@ function Diagram({ mass, wingArea, loadFactor, CLMax }) {
 		displaylogo: false,
 	};
 
+	const plotStyle = {
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
+		width: "100%",
+		height: "100%",
+	};
+
 	return (
 		<div className="flex relative justify-center w-full h-auto mt-5 rounded-xl overflow-hidden lg:mt-0 lg:ml-8 lg:w-auto lg:max-w-xl">
 			<Plot
 				data={data}
 				layout={layout}
-				style={{
-					display: "flex",
-					justifyContent: "center",
-					alignItems: "center",
-					width: "100%",
-					height: "100%",
-				}}
+				style={plotStyle}
 				useResizeHandler={true}
 				config={config}
 			/>
