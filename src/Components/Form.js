@@ -60,7 +60,7 @@ const Form = ({ submitValues }) => {
 				);
 			})}
 
-			<CalculateButton text="Calculate!" />
+			<CalculateButton>Calculate!</CalculateButton>
 		</form>
 	);
 };
