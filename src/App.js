@@ -3,7 +3,7 @@ import { Footer } from "./Components/Footer";
 
 function App() {
 	return (
-		<div className="grid place-items-center min-h-screen bg-aircraft-cabin bg-no-repeat bg-cover bg-top">
+		<div className="relative grid place-items-center min-h-screen bg-aircraft-cabin bg-no-repeat bg-cover bg-top">
 			<Card />
 			<Footer />
 		</div>
