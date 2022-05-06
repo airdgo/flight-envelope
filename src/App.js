@@ -1,9 +1,11 @@
 import Card from "./Components/Card";
+import { Footer } from "./Components/Footer";
 
 function App() {
 	return (
 		<div className="grid place-items-center min-h-screen bg-aircraft-cabin bg-no-repeat bg-cover bg-top">
 			<Card />
+			<Footer />
 		</div>
 	);
 }

@@ -6,7 +6,7 @@ import {
 	negxArry,
 	negyArry,
 } from "./ManeuverDiagram/loadFactor.js";
-import { ChangeColorIco } from "./ChangeColorIco.js";
+import { ChangeColorIco } from "./Icons/ChangeColorIco.js";
 import { CalculateManeuverDiagram } from "./ManeuverDiagram/CalculateManeuverDiagram";
 
 function Diagram({ mass, wingArea, loadFactor, CLMax }) {
