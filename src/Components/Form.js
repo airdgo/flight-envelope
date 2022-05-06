@@ -39,7 +39,6 @@ const Form = ({ submitValues }) => {
 
 	const showDiagram = (e) => {
 		e.preventDefault();
-
 		submitValues(values);
 	};
 

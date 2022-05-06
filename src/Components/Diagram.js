@@ -7,75 +7,11 @@ import {
 	negyArry,
 } from "./ManeuverDiagram_functions/loadFactor.js";
 import { ChangeColorIco } from "./ChangeColorIco.js";
+import { CalculateManeuverDiagram } from "./ManeuverDiagram_functions/CalculateManeuverDiagram";
 
 function Diagram({ mass, wingArea, loadFactor, CLMax }) {
-	// Military aircraft diagram based on MIL
-
-	// Input
-
-	let maxNegLoadFactor =
-		loadFactor >= 6 && loadFactor <= 8
-			? -3
-			: loadFactor >= 4 && loadFactor < 6
-			? -2
-			: -1;
-
-	let n3 = maxNegLoadFactor === -3 ? -1 : 0;
-
-	// Constants
-
-	const g = 9.81;
-	const rho = 0.2655;
-
-	// General calculus
-
-	// Aircraft Weight
-
-	const Gav = (mass * g) / 10;
-
-	//.................................
-	// Maneuver Diagram calculus
-	//.................................
-
-	// Point A
-
-	// Stall speed calculus
-
-	const Vs = Math.sqrt((2 * Gav) / rho / wingArea / CLMax);
-
-	const Va = Vs * Math.sqrt(loadFactor);
-
-	const A = [Va, loadFactor];
-
-	// Point D
-
-	const Vh = 7.7 * Math.sqrt(Gav / wingArea);
-
-	const D = [Vh, maxNegLoadFactor];
-
-	// Point B
-
-	const Vl = 1.4 * Vh;
-
-	const B = [Vl, loadFactor];
-
-	// Point E
-
-	const CLMaxNeg = -0.65 * CLMax;
-
-	const Ve = Math.sqrt(
-		(2 * Math.abs(maxNegLoadFactor) * Gav) / rho / wingArea / Math.abs(CLMaxNeg)
-	);
-
-	const E = [Ve, maxNegLoadFactor];
-
-	// Point C
-
-	const C = [Vl, n3];
-
-	//.......................................
-	// Plot
-	//.......................................
+	const { A, B, C, D, E, Vs, maxNegLoadFactor, Gav, rho, CLMaxNeg } =
+		CalculateManeuverDiagram(mass, wingArea, loadFactor, CLMax);
 
 	const [colors, setColor] = useState([
 		"#2161AD",
@@ -175,6 +111,7 @@ function Diagram({ mass, wingArea, loadFactor, CLMax }) {
 		displayModeBar: true,
 		displaylogo: false,
 	};
+
 	return (
 		<div className="flex relative justify-center w-full h-auto mt-5 rounded-xl overflow-hidden lg:mt-0 lg:ml-8 lg:w-auto lg:max-w-xl">
 			<Plot
