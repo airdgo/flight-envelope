@@ -4,8 +4,8 @@ This is a web app that aims to help students and engineers by plotting the fligh
 
 ### Screenshots
 
-![](./PC-screenshot.png)
-![](./Mobile-screenshot.png)
+![](./screenshots/PC-screenshot.png)
+![](./screenshots/Mobile-screenshot.png)
 
 ### Website
 
