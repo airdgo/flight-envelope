@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Remove input number spinners */
 @layer utilities {
 	input[type="number"]::-webkit-inner-spin-button,
 	input[type="number"]::-webkit-outer-spin-button {
@@ -13,10 +14,12 @@
 	}
 }
 
+/* Fill the download icon from plotly */
 .icon path {
 	fill: black !important;
 }
 
+/* Don't display the  tooltip of plotly icons*/
 .js-plotly-plot .plotly [data-title]::after,
 .js-plotly-plot .plotly [data-title]::before {
 	display: none !important;
