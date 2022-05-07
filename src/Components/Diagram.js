@@ -121,7 +121,7 @@ function Diagram({ mass, wingArea, loadFactor, CLMax }) {
 	};
 
 	return (
-		<div className="flex relative justify-center w-full h-auto mt-5 rounded-xl overflow-hidden lg:mt-0 lg:ml-8 lg:w-auto lg:max-w-xl">
+		<div className="flex relative justify-center w-full h-auto rounded-xl overflow-hidden lg:w-full lg:max-w-xl">
 			<Plot
 				data={data}
 				layout={layout}
